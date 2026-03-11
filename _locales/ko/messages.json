@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "클릭 한 번으로 웹 테이블을 Excel용으로 즉시 캡처하세요."
+   },
+   "btn_cancel": {
+      "message": "취소"
+   },
+   "copy_error": {
+      "message": "복사 실패."
+   },
+   "copy_success": {
+      "message": "복사 완료!"
+   },
+   "mode_col": {
+      "message": "열 (드래그하여 선택)"
+   },
+   "mode_range": {
+      "message": "셀 범위 (자유 선택)"
+   },
+   "mode_row": {
+      "message": "행 (드래그하여 선택)"
+   },
+   "mode_table": {
+      "message": "전체 테이블"
+   }
+}

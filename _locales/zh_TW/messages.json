@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "一鍵瞬間抓取網頁表格到 Excel。"
+   },
+   "btn_cancel": {
+      "message": "取消"
+   },
+   "copy_error": {
+      "message": "複製失敗。"
+   },
+   "copy_success": {
+      "message": "複製完成！"
+   },
+   "mode_col": {
+      "message": "列（拖曳選擇）"
+   },
+   "mode_range": {
+      "message": "儲存格範圍（自由選擇）"
+   },
+   "mode_row": {
+      "message": "行（拖曳選擇）"
+   },
+   "mode_table": {
+      "message": "整個表格"
+   }
+}

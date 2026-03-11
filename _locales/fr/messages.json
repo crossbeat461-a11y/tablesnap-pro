@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "Capturez instantanément des tableaux web pour Excel en un clic."
+   },
+   "btn_cancel": {
+      "message": "Annuler"
+   },
+   "copy_error": {
+      "message": "Cópia falhou."
+   },
+   "copy_success": {
+      "message": "Copie Terminée!"
+   },
+   "mode_col": {
+      "message": "Colonnes (Arrastar para selecionar)"
+   },
+   "mode_range": {
+      "message": "Intervalle de cellules (Seleção livre)"
+   },
+   "mode_row": {
+      "message": "Lignes (Arrastar para selecionar)"
+   },
+   "mode_table": {
+      "message": "Tableau entier"
+   }
+}

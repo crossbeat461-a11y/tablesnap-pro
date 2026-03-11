@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "Instantly capture web tables for Excel with one click."
+   },
+   "btn_cancel": {
+      "message": "Cancel"
+   },
+   "copy_error": {
+      "message": "Copy failed."
+   },
+   "copy_success": {
+      "message": "Copy Complete!"
+   },
+   "mode_col": {
+      "message": "Columns (Drag to select)"
+   },
+   "mode_range": {
+      "message": "Cell Range (Free select)"
+   },
+   "mode_row": {
+      "message": "Rows (Drag to select)"
+   },
+   "mode_table": {
+      "message": "Whole Table"
+   }
+}

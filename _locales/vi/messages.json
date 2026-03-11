@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "Chụp ngay lập tức các bảng web cho Excel chỉ với một cú nhấp chuột."
+   },
+   "btn_cancel": {
+      "message": "Hủy"
+   },
+   "copy_error": {
+      "message": "Sao chép thất bại."
+   },
+   "copy_success": {
+      "message": "Sao chép Hoàn tất!"
+   },
+   "mode_col": {
+      "message": "Cột (Kéo để chọn)"
+   },
+   "mode_range": {
+      "message": "Phạm vi ô (Chọn tự do)"
+   },
+   "mode_row": {
+      "message": "Hàng (Kéo để chọn)"
+   },
+   "mode_table": {
+      "message": "Toàn bộ bảng"
+   }
+}

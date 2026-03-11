@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "Erfassen Sie Web-Tabellen sofort für Excel mit einem Klick."
+   },
+   "btn_cancel": {
+      "message": "Abbrechen"
+   },
+   "copy_error": {
+      "message": "Kopie fehlgeschlagen."
+   },
+   "copy_success": {
+      "message": "Kopie Abgeschlossen!"
+   },
+   "mode_col": {
+      "message": "Spalten (Ziehen zum Auswählen)"
+   },
+   "mode_range": {
+      "message": "Zellbereich (Freie Auswahl)"
+   },
+   "mode_row": {
+      "message": "Zeilen (Ziehen zum Auswählen)"
+   },
+   "mode_table": {
+      "message": "Gesamte Tabelle"
+   }
+}

@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "จับภาพตารางเว็บสำหรับ Excel ทันทีด้วยคลิกเดียว"
+   },
+   "btn_cancel": {
+      "message": "ยกเลิก"
+   },
+   "copy_error": {
+      "message": "คัดลอกล้มเหลว"
+   },
+   "copy_success": {
+      "message": "คัดลอกเสร็จสิ้น!"
+   },
+   "mode_col": {
+      "message": "คอลัมน์ (ลากเพื่อเลือก)"
+   },
+   "mode_range": {
+      "message": "ช่วงเซลล์ (เลือกฟรี)"
+   },
+   "mode_row": {
+      "message": "แถว (ลากเพื่อเลือก)"
+   },
+   "mode_table": {
+      "message": "ทั้งตาราง"
+   }
+}

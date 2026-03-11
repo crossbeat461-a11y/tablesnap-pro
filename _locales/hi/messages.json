@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "एक क्लिक में वेब टेबल को तुरंत Excel के लिए कैप्चर करें।"
+   },
+   "btn_cancel": {
+      "message": "रद्द करें"
+   },
+   "copy_error": {
+      "message": "कॉपी विफल।"
+   },
+   "copy_success": {
+      "message": "कॉपी पूर्ण!"
+   },
+   "mode_col": {
+      "message": "कॉलम (चुनने के लिए ड्रैग करें)"
+   },
+   "mode_range": {
+      "message": "सेल रेंज (फ्री सेलेक्ट)"
+   },
+   "mode_row": {
+      "message": "पंक्तियाँ (चुनने के लिए ड्रैग करें)"
+   },
+   "mode_table": {
+      "message": "पूरी टेबल"
+   }
+}

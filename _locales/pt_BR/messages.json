@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "Capture instantaneamente tabelas web para o Excel com um clique."
+   },
+   "btn_cancel": {
+      "message": "Cancelar"
+   },
+   "copy_error": {
+      "message": "Falha na cópia."
+   },
+   "copy_success": {
+      "message": "Cópia Concluída!"
+   },
+   "mode_col": {
+      "message": "Colunas (Arrastar para selecionar)"
+   },
+   "mode_range": {
+      "message": "Intervalo de Células (Seleção livre)"
+   },
+   "mode_row": {
+      "message": "Linhas (Arrastar para selecionar)"
+   },
+   "mode_table": {
+      "message": "Tabela Inteira"
+   }
+}

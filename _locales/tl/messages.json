@@ -1,0 +1,10 @@
+{
+  "app_description": { "message": "Kuhanin agad ang mga web table para sa Excel sa isang click." },
+  "mode_table": { "message": "Buong Mesa" },
+  "mode_row": { "message": "Mga Row (Hilahin para pumili)" },
+  "mode_col": { "message": "Mga Column (Hilahin para pumili)" },
+  "mode_range": { "message": "Saklaw ng Cell (Libreng piliin)" },
+  "btn_cancel": { "message": "Kanselahin" },
+  "copy_success": { "message": "Kumpleto na ang Kopyahin!" },
+  "copy_error": { "message": "Nabigo ang kopyahin." }
+}

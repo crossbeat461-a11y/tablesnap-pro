@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "Tangkap tabel web secara instan untuk Excel dengan satu klik."
+   },
+   "btn_cancel": {
+      "message": "Batal"
+   },
+   "copy_error": {
+      "message": "Penyalinan gagal."
+   },
+   "copy_success": {
+      "message": "Penyalinan Selesai!"
+   },
+   "mode_col": {
+      "message": "Kolom (Seret untuk memilih)"
+   },
+   "mode_range": {
+      "message": "Rentang Sel (Pilih bebas)"
+   },
+   "mode_row": {
+      "message": "Baris (Seret untuk memilih)"
+   },
+   "mode_table": {
+      "message": "Seluruh Tabel"
+   }
+}

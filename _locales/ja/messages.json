@@ -1,0 +1,26 @@
+{
+   "app_description": {
+      "message": "ウェブ上のテーブルをワンクリックでExcel形式にコピーします。"
+   },
+   "btn_cancel": {
+      "message": "キャンセル"
+   },
+   "copy_error": {
+      "message": "コピーに失敗しました。"
+   },
+   "copy_success": {
+      "message": "コピー完了！"
+   },
+   "mode_col": {
+      "message": "列（ドラッグで複数列）"
+   },
+   "mode_range": {
+      "message": "セル範囲 (自由選択)"
+   },
+   "mode_row": {
+      "message": "行（ドラッグで複数行）"
+   },
+   "mode_table": {
+      "message": "テーブル全体"
+   }
+}
