@@ -1,6 +1,6 @@
 # TableSnap Pro 🚀
 
-[English](#english) | [日本語](#japanese)
+[English](#english) | [日本語](#japanese) | [Deutsch](#german) | [Français](#french)
 
 ---
 
@@ -45,6 +45,50 @@ Chromeウェブストアから公式版をインストールいただけます�
 1.  コピーしたい表があるページを開きます。
 2.  ツールバーの **TableSnap Pro** アイコンをクリックします。
 3.  Excelやスプレッドシートを開き、**貼り付け（Ctrl+V）**。完璧な状態で入力されます！
+
+---
+
+<a name="german"></a>
+## Deutsch
+
+**Verwandeln Sie Web-Tabellen sofort in "perfekte" Excel-Daten.** Hören Sie auf, sich mit unordentlichen Layouts, fehlerhaften Zellen und manuellen Korrekturen herumzuschlagen. TableSnap Pro ist eine hochpräzise Chrome-Erweiterung, die entwickelt wurde, um die Lücke zwischen Webdaten und Tabellenkalkulationen zu schließen.
+
+### ✨ Hauptmerkmale
+* **Hochpräzises Parsing:** Erfasst Zeilenumbrüche und Sonderzeichen innerhalb von Zellen, ohne das Layout zu zerstören.
+* **Ein-Klick-Workflow:** Klicken Sie einfach auf das Erweiterungssymbol, um die optimalen Tabellendaten in Ihre Zwischenablage zu kopieren.
+* **Datenschutz an erster Stelle:** Die gesamte Verarbeitung erfolgt lokal. Ihre Daten verlassen niemals Ihr Gerät.
+* **Bereit fürs Geschäft:** Optimiert für komplexe professionelle Webanwendungen und Tabellen.
+
+### 📥 Installation
+Sie können die offizielle Version aus dem Chrome Web Store installieren:  
+👉 **[TableSnap Pro installieren](https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg)**
+
+### 🛠 Verwendung
+1.  Navigieren Sie zu einer Webseite, die eine Tabelle enthält.
+2.  Klicken Sie auf das **TableSnap Pro**-Symbol in Ihrer Browser-Symbolleiste.
+3.  Öffnen Sie Excel oder Google Sheets und **Einfügen (Strg+V)**. Genießen Sie das perfekte Layout!
+
+---
+
+<a name="french"></a>
+## Français
+
+**Transformez instantanément les tableaux Web en données Excel "parfaites".** Arrêtez de vous battre avec des mises en page désordonnées, des cellules cassées et des corrections manuelles. TableSnap Pro est une extension Chrome de haute précision conçue pour combler le vide entre les données Web et les feuilles de calcul.
+
+### ✨ Caractéristiques principales
+* **Analyse de haute précision :** Capture les sauts de ligne et les caractères spéciaux dans les cellules sans casser la mise en page.
+* **Flux de travail en un clic :** Cliquez simplement sur l'icône de l'extension pour copier les données de tableau les plus appropriées dans votre presse-papiers.
+* **Confidentialité avant tout :** Tout le traitement s'effectue localement. Vos données ne quittent jamais votre appareil.
+* **Prêt pour l'entreprise :** Optimisé pour les applications Web professionnelles complexes et les tableaux.
+
+### 📥 Installation
+Vous pouvez installer la version officielle depuis le Chrome Web Store :  
+👉 **[Installer TableSnap Pro](https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg)**
+
+### 🛠 Comment utiliser
+1.  Accédez à une page Web contenant un tableau.
+2.  Cliquez sur l'icône **TableSnap Pro** dans la barre d'outils de votre navigateur.
+3.  Ouvrez Excel ou Google Sheets et **Collez (Ctrl+V)**. Profitez d'une mise en page parfaite !
 
 ---
 
