@@ -1,5 +1,7 @@
 # TableSnap Pro 🚀
 
+![TableSnap Pro Infographic](./image_1.png)
+
 [English](#english) | [日本語](#japanese) | [Deutsch](#german) | [Français](#french) | [中文 (简体)](#chinese-simplified) | [中文 (繁體)](#chinese-traditional) | [Español](#spanish) | [हिन्दी](#hindi) | [Bahasa Indonesia](#indonesian) | [한국어](#korean) | [Português (Brasil)](#portuguese) | [ไทย](#thai) | [Tagalog](#tagalog) | [Tiếng Việt](#vietnamese)
 
 ---
@@ -264,7 +266,7 @@ Você pode instalar a versão oficial da Chrome Web Store:
 ### 🛠 วิธีใช้งาน
 1.  ไปที่หน้าเว็บที่มีตาราง
 2.  คลิกไอคอน **TableSnap Pro** ในแถบเครื่องมือเบราว์เซอร์ของคุณ
-3.  เปิด Excel หรือ Google Sheets แล้ว **วาง (Ctrl+V)** เพลิดเพลินกับเลย์เอาต์ที่สมบูรณ์แบบ!
+3.  เปิด Excel หรือ Google Sheets แล้ว **วาง (Ctrl+V)** เพลินเพลินกับเลย์เอาต์ที่สมบูรณ์แบบ!
 
 ---
 
@@ -284,7 +286,7 @@ Maaari mong i-install ang opisyal na bersyon mula sa Chrome Web Store:
 👉 **[I-install ang TableSnap Pro](https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg)**
 
 ### 🛠 Paano Gamitin
-1.  Mag-navigate sa isang web page na naglalaman ng table.
+1.  Mag-navigate sa isang web page na nag lalaman ng table.
 2.  I-click ang **TableSnap Pro** icon sa iyong browser toolbar.
 3.  Buksan ang Excel o Google Sheets at **I-paste (Ctrl+V)**. I-enjoy ang perpektong layout!
 
