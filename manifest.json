@@ -14,7 +14,7 @@
    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo6466aWBcBZRNZwiFB4nSb9qFKHRA/T995Gk7pI6cRARp/M+qIiXL6v+yhxMCmOXZMm1/mCjk5qrwrybq20cVsr0MDYZl8S/znQHeFyE33iTvvsKO72sMRGM9dN5yjTZIM4T7PYRf6GiCsJCelVhSO4QE5rYgQFO2nMZJNMinMuSY1htEYLVM6bidkO4B7meqz46kbRF0UVc2H3sAhAxnvSuCWzG9hfXxbArGnHKTq1K5aQGYBmmrork4gW0tfwkc1xc4cM9BRB/xPcr8mBo0k2dpD2zAZ/7mUt9Qwupq6lQef3ggAAKXe1F0pvGOX967d1tidyZvh5xfhwAvleynwIDAQAB",
    "manifest_version": 3,
    "name": "TableSnap Pro",
-   "permissions": [ "activeTab", "scripting" ],
+   "permissions": [ "activeTab", "scripting", "clipboardWrite" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.3.0"
+   "version": "2.0.4"
 }
