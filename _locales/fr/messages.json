@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "Capturez instantanément des tableaux web pour Excel en un clic."
+      "message": "Copiez des tableaux web pour Excel ou en Markdown."
+   },
+   "format_excel": {
+      "message": "Excel (CSV)"
+   },
+   "format_label": {
+      "message": "Copier en"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "Annuler"

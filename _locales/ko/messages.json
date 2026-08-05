@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "클릭 한 번으로 웹 테이블을 Excel용으로 즉시 캡처하세요."
+      "message": "웹 테이블을 Excel 또는 Markdown으로 복사합니다."
+   },
+   "format_excel": {
+      "message": "Excel (CSV)"
+   },
+   "format_label": {
+      "message": "복사 형식"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "취소"

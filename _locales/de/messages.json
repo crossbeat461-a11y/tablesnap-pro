@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "Erfassen Sie Web-Tabellen sofort für Excel mit einem Klick."
+      "message": "Erfassen Sie Web-Tabellen für Excel oder als Markdown."
+   },
+   "format_excel": {
+      "message": "Excel (CSV)"
+   },
+   "format_label": {
+      "message": "Kopieren als"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "Abbrechen"

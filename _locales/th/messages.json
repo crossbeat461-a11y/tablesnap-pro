@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "จับภาพตารางเว็บสำหรับ Excel ทันทีด้วยคลิกเดียว"
+      "message": "คัดลอกตารางเว็บเป็น Excel หรือ Markdown"
+   },
+   "format_excel": {
+      "message": "Excel (CSV)"
+   },
+   "format_label": {
+      "message": "คัดลอกเป็น"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "ยกเลิก"

@@ -1,5 +1,7 @@
 # TableSnap Pro 🚀
 
+**Version v2.0.5** (Chrome extension `2.0.5`) — Copy web tables as **Excel (CSV)** or **Markdown**. Four selection modes; all processing stays on your device.
+
 ![TableSnap Pro Infographic](./image_1.png)
 
 [English](#english) | [日本語](#japanese) | [Deutsch](#german) | [Français](#french) | [中文 (简体)](#chinese-simplified) | [中文 (繁體)](#chinese-traditional) | [Español](#spanish) | [हिन्दी](#hindi) | [Bahasa Indonesia](#indonesian) | [한국어](#korean) | [Português (Brasil)](#portuguese) | [ไทย](#thai) | [Tagalog](#tagalog) | [Tiếng Việt](#vietnamese)
@@ -9,11 +11,12 @@
 <a name="english"></a>
 ## English
 
-**Transform web tables into "Perfect" Excel data instantly.** Stop fighting with messy layouts, broken cells, and manual fixing. TableSnap Pro is a high-precision Chrome extension designed to bridge the gap between web data and spreadsheets.
+**Transform web tables into Excel or Markdown instantly.** TableSnap Pro is a high-precision Chrome extension for spreadsheets, Obsidian, Notion, and AI workflows.
 
 ### ✨ Key Features
+* **Dual output formats:** **Excel (CSV/TSV)** for spreadsheets, or **Markdown** pipe tables for notes and docs.
+* **Four selection modes:** Whole table, rows, columns, or free-form cell range (drag to multi-select).
 * **High-Precision Parsing:** Captures line breaks and special characters within cells without breaking the layout.
-* **One-Click Workflow:** Just click the extension icon to copy the most suitable table data to your clipboard.
 * **Privacy First:** All processing is done locally. Your data never leaves your device.
 * **Business Ready:** Optimized for complex professional web applications and tables.
 
@@ -21,32 +24,37 @@
 You can install the official version from the Chrome Web Store:  
 👉 **[Install TableSnap Pro](https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg)**
 
-### 🛠 How to Use
+### 🛠 How to Use (v2.0.5)
 1.  Navigate to a web page containing a table.
-2.  Click the **TableSnap Pro** icon in your browser toolbar.
-3.  Open Excel or Google Sheets and **Paste (Ctrl+V)**. Enjoy the perfect layout!
+2.  Click the **TableSnap Pro** icon. The panel header shows **V2.0.5**.
+3.  Choose **Excel (CSV)** or **Markdown**, then select a mode (table / rows / columns / range).
+4.  Click or drag on the table to select data—it is copied to your clipboard automatically.
+5.  Paste into Excel, Google Sheets, Obsidian, Notion, or your editor.
 
 ---
 
 <a name="japanese"></a>
 ## 日本語
 
-**ウェブの表を、一瞬で「正解」のExcelデータへ。** コピー＆ペースト時の改行ズレやセルの崩れに悩まされるのは、もう終わりにしましょう。TableSnap Proは、見たままの構造を保持してExcelへ橋渡しをする高精度なChrome拡張機能です。
+**ウェブの表を Excel または Markdown へ。** TableSnap Pro は、表計算・Obsidian・Notion・AI 向けに Web テーブルを高精度でクリップボードへ送る Chrome 拡張機能です（**v2.0.5**）。
 
 ### ✨ 主な特徴
-* **高精度な表解析:** セル内の改行や特殊文字を完璧に保持。Excel貼り付け時のズレをゼロにします。
-* **究極のシンプル操作:** アイコンをクリックするだけで、クリップボードに最適なデータが整います。
-* **プライバシー保護:** データ解析はすべてローカルで完結。外部サーバーへの送信は一切ありません。
-* **業務効率の劇的向上:** 手動の修正時間をゼロにし、クリエイティブな作業に集中できます。
+* **2つの出力形式:** **Excel用（CSV/TSV）** と **Markdown**（パイプ表）をパネル上部で切り替え。
+* **4つの抽出モード:** テーブル全体・行・列・セル範囲（ドラッグで複数選択）。
+* **高精度な表解析:** セル内の改行や特殊文字を保持。Excel 貼り付け時のズレを抑えます。
+* **プライバシー保護:** データ解析はすべてローカルで完結。外部サーバーへの送信はありません。
+* **業務効率の向上:** 手動修正の時間を削減し、本業に集中できます。
 
 ### 📥 インストール
 Chromeウェブストアから公式版をインストールいただけます：  
 👉 **[TableSnap Pro をインストールする](https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg)**
 
-### 🛠 使い方
+### 🛠 使い方（v2.0.5）
 1.  コピーしたい表があるページを開きます。
-2.  ツールバーの **TableSnap Pro** アイコンをクリックします。
-3.  Excelやスプレッドシートを開き、**貼り付け（Ctrl+V）**。完璧な状態で入力されます！
+2.  ツールバーの **TableSnap Pro** アイコンをクリックします（パネル上部に **V2.0.5** と表示）。
+3.  **Excel用（CSV）** または **Markdown** を選び、①〜④のモードを選びます。
+4.  ページ上の表をクリック／ドラッグして選択すると、自動でクリップボードにコピーされます。
+5.  Excel、スプレッドシート、Obsidian、Notion などに **貼り付け（Ctrl+V / ⌘V）** します。
 
 ---
 
@@ -314,9 +322,13 @@ Bạn có thể cài đặt phiên bản chính thức từ Chrome Web Store:
 
 ---
 
+## v2.0.5 — Other languages
+
+For **Deutsch, Français, Español, 中文, 한국어,** and all other localized sections above, the **v2.0.5** workflow matches [English](#english): open the panel (**V2.0.5**), choose **Excel (CSV)** or **Markdown**, pick table / rows / columns / range, select on the page, then paste.
+
 ## 🔗 Links
-* **Official Website (LP):** [https://crossbeat461-a11y.github.io/tablesnap-lp/](https://crossbeat461-a11y.github.io/tablesnap-lp/)
+* **Official Website (LP):** [https://crossbeat461-a11y.github.io/tablesnap-lp/](https://crossbeat461-a11y.github.io/tablesnap-lp/) · [https://tablesnap-pro-lp.vercel.app/](https://tablesnap-pro-lp.vercel.app/)
 * **Developer:** [crossbeat461-a11y](https://github.com/crossbeat461-a11y)
 
 ---
-© 2026 TableSnap Pro Project. Licensed under the MIT License.
+© 2026 TableSnap Pro Project (v2.0.5). Licensed under the MIT License.

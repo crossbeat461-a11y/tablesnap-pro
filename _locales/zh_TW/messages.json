@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "一鍵瞬間抓取網頁表格到 Excel。"
+      "message": "一鍵複製網頁表格為 Excel 或 Markdown。"
+   },
+   "format_excel": {
+      "message": "Excel（CSV）"
+   },
+   "format_label": {
+      "message": "複製格式"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "取消"

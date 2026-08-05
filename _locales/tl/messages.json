@@ -1,5 +1,8 @@
 {
-  "app_description": { "message": "Kuhanin agad ang mga web table para sa Excel sa isang click." },
+  "app_description": { "message": "Kopyahin ang web table para sa Excel o Markdown." },
+  "format_excel": { "message": "Excel (CSV)" },
+  "format_label": { "message": "Kopyahin bilang" },
+  "format_markdown": { "message": "Markdown" },
   "mode_table": { "message": "Buong Mesa" },
   "mode_row": { "message": "Mga Row (Hilahin para pumili)" },
   "mode_col": { "message": "Mga Column (Hilahin para pumili)" },

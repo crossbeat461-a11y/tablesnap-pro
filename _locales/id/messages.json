@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "Tangkap tabel web secara instan untuk Excel dengan satu klik."
+      "message": "Salin tabel web untuk Excel atau Markdown."
+   },
+   "format_excel": {
+      "message": "Excel (CSV)"
+   },
+   "format_label": {
+      "message": "Salin sebagai"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "Batal"

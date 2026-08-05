@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "Instantly capture web tables for Excel with one click."
+      "message": "Copy web tables for Excel or as Markdown tables."
+   },
+   "format_excel": {
+      "message": "Excel (CSV)"
+   },
+   "format_label": {
+      "message": "Copy as"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "Cancel"

@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "एक क्लिक में वेब टेबल को तुरंत Excel के लिए कैप्चर करें।"
+      "message": "वेब टेबल Excel या Markdown के रूप में कॉपी करें।"
+   },
+   "format_excel": {
+      "message": "Excel (CSV)"
+   },
+   "format_label": {
+      "message": "इस रूप में कॉपी"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "रद्द करें"

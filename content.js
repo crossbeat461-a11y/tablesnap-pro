@@ -1,9 +1,8 @@
-/* content.js Ver 1.3.0 - International Edition */
+/* content.js Ver 2.0.5 - International Edition */
 (function() {
     if (window.isTableSelectorRunning) return;
     window.isTableSelectorRunning = true;
 
-    // 多言語メッセージの取得用ショートカット
     const getMsg = (key) => chrome.i18n.getMessage(key);
 
     const cleanup = () => {
@@ -26,10 +25,22 @@
     style.textContent = `
         #panel {
             position: fixed; top: 30px; right: 30px; background: #fff; border: 3px solid #333;
-            padding: 20px; z-index: 2147483647; border-radius: 15px; width: 280px;
+            padding: 20px; z-index: 2147483647; border-radius: 15px; width: 300px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5); font-family: sans-serif;
         }
-        .title { font-weight: bold; margin-bottom: 15px; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 16px; }
+        .title { margin-bottom: 12px; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .title-main { font-weight: bold; font-size: 16px; line-height: 1.3; }
+        .title-version { display: block; margin-top: 4px; font-size: 12px; font-weight: 600; color: #666; letter-spacing: 0.02em; }
+        .format-row {
+            margin-bottom: 14px; padding-bottom: 12px; border-bottom: 2px solid #eee;
+            font-size: 12px;
+        }
+        .format-label { display: block; font-weight: bold; margin-bottom: 8px; color: #555; }
+        .format-toggle { display: flex; flex-direction: column; gap: 6px; }
+        .format-toggle label {
+            display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: normal;
+        }
+        .format-toggle input { margin: 0; cursor: pointer; }
         .btn {
             display: block; width: 100%; padding: 12px; margin: 8px 0; cursor: pointer;
             border-radius: 8px; border: 1px solid #ddd; font-weight: bold; font-size: 13px;
@@ -44,11 +55,20 @@
     `;
     shadow.appendChild(style);
 
-    // ボタンのテキストを多言語対応（messages.jsonから取得）
     const panel = document.createElement('div');
     panel.id = 'panel';
     panel.innerHTML = `
-        <div class="title">TableSnap Pro</div>
+        <div class="title">
+            <div class="title-main">TableSnap Pro</div>
+            <span class="title-version">V2.0.5</span>
+        </div>
+        <div class="format-row">
+            <span class="format-label">${getMsg("format_label") || "Output format"}</span>
+            <div class="format-toggle">
+                <label><input type="radio" name="ts-format" value="tsv" checked> ${getMsg("format_excel") || "Excel (CSV)"}</label>
+                <label><input type="radio" name="ts-format" value="markdown"> ${getMsg("format_markdown") || "Markdown"}</label>
+            </div>
+        </div>
         <button class="btn btn-table" data-mode="table">① ${getMsg("mode_table") || 'Table'}</button>
         <button class="btn btn-row" data-mode="row">② ${getMsg("mode_row") || 'Rows'}</button>
         <button class="btn btn-col" data-mode="col">③ ${getMsg("mode_col") || 'Columns'}</button>
@@ -72,6 +92,11 @@
     let startCell = null;
     let isCopying = false;
 
+    const getOutputFormat = () => {
+        const checked = shadow.querySelector('input[name="ts-format"]:checked');
+        return checked?.value === 'markdown' ? 'markdown' : 'tsv';
+    };
+
     shadow.querySelectorAll('.btn').forEach(btn => {
         btn.onclick = (e) => {
             e.stopPropagation();
@@ -81,6 +106,57 @@
             panel.style.display = 'none';
         };
     });
+
+    const buildDataMap = (selected) => {
+        const dataMap = new Map();
+        selected.forEach(cell => {
+            const r = cell.parentElement.rowIndex;
+            if (!dataMap.has(r)) dataMap.set(r, []);
+            dataMap.get(r).push({ c: cell.cellIndex, text: cell.innerText.trim() });
+        });
+        return dataMap;
+    };
+
+    const toTsv = (dataMap) => {
+        return Array.from(dataMap.keys()).sort((a, b) => a - b).map(r => {
+            return dataMap.get(r).sort((a, b) => a.c - b.c).map(obj => obj.text).join('\t');
+        }).join('\n');
+    };
+
+    const toMarkdown = (dataMap) => {
+        const rowKeys = Array.from(dataMap.keys()).sort((a, b) => a - b);
+        if (rowKeys.length === 0) return '';
+
+        let minC = Infinity;
+        let maxC = -Infinity;
+        rowKeys.forEach(r => {
+            dataMap.get(r).forEach(({ c }) => {
+                minC = Math.min(minC, c);
+                maxC = Math.max(maxC, c);
+            });
+        });
+
+        const grid = rowKeys.map(r => {
+            const byCol = new Map(dataMap.get(r).map(o => [o.c, o.text]));
+            const cells = [];
+            for (let c = minC; c <= maxC; c++) cells.push(byCol.get(c) ?? '');
+            return cells;
+        });
+
+        const escapeCell = (text) => String(text).replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
+        const formatRow = (cells) => '| ' + cells.map(escapeCell).join(' | ') + ' |';
+        const separator = (colCount) => '| ' + Array.from({ length: colCount }, () => '---').join(' | ') + ' |';
+
+        const colCount = grid[0].length;
+        if (grid.length === 1) {
+            const headers = grid[0].map((_, i) => `Column ${i + 1}`);
+            return [formatRow(headers), separator(colCount), formatRow(grid[0])].join('\n');
+        }
+
+        const header = formatRow(grid[0]);
+        const body = grid.slice(1).map(formatRow).join('\n');
+        return [header, separator(colCount), body].join('\n');
+    };
 
     const getCell = (el) => {
         const td = el.closest('td, th');
@@ -147,29 +223,21 @@
     document.onmouseup = (e) => {
         if (!mode || !startCell || isCopying) return;
         const selected = document.querySelectorAll('.tc-tab-h, .tc-row-h, .tc-col-h, .tc-range-h');
-        
+
         if (selected.length > 0) {
             isCopying = true;
-            const dataMap = new Map();
-            selected.forEach(cell => {
-                const r = cell.parentElement.rowIndex;
-                if (!dataMap.has(r)) dataMap.set(r, []);
-                dataMap.get(r).push({ c: cell.cellIndex, text: cell.innerText.trim() });
-            });
-            
+            const dataMap = buildDataMap(selected);
             clearH();
 
-            const tsv = Array.from(dataMap.keys()).sort((a,b)=>a-b).map(r => {
-                return dataMap.get(r).sort((a,b)=>a.c-b.c).map(obj=>obj.text).join('\t');
-            }).join('\n');
+            const outputFormat = getOutputFormat();
+            const text = outputFormat === 'markdown' ? toMarkdown(dataMap) : toTsv(dataMap);
 
-            navigator.clipboard.writeText(tsv).then(() => {
+            navigator.clipboard.writeText(text).then(() => {
                 const t = document.createElement('div');
-                // 多言語対応メッセージを表示
                 t.textContent = getMsg("copy_success") || "Copied!";
                 t.style.cssText = "position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#000;color:#fff;padding:10px 24px;border-radius:30px;z-index:2147483647;font-weight:bold;box-shadow:0 4px 15px rgba(0,0,0,0.4);";
                 document.body.appendChild(t);
-                
+
                 setTimeout(() => { t.remove(); cleanup(); }, 1200);
             }).catch(() => {
                 isCopying = false;

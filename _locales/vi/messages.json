@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "Chụp ngay lập tức các bảng web cho Excel chỉ với một cú nhấp chuột."
+      "message": "Sao chép bảng web cho Excel hoặc Markdown."
+   },
+   "format_excel": {
+      "message": "Excel (CSV)"
+   },
+   "format_label": {
+      "message": "Sao chép dạng"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "Hủy"

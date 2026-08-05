@@ -1,6 +1,15 @@
 {
    "app_description": {
-      "message": "ウェブ上のテーブルをワンクリックでExcel形式にコピーします。"
+      "message": "ウェブ上のテーブルをExcel形式またはMarkdown形式でコピーします。"
+   },
+   "format_excel": {
+      "message": "Excel用（CSV）"
+   },
+   "format_label": {
+      "message": "コピー形式"
+   },
+   "format_markdown": {
+      "message": "Markdown"
    },
    "btn_cancel": {
       "message": "キャンセル"
