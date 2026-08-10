@@ -5,6 +5,264 @@
 
     const getMsg = (key) => chrome.i18n.getMessage(key);
 
+    const escapeTsvCell = (text) => {
+        if (/[\t\n\r"]/.test(text)) {
+            return '"' + text.replace(/"/g, '""') + '"';
+        }
+        return text;
+    };
+
+    const METRIC_RE = /^(前年|売上|比率)([：:])(.*)$/;
+    const isMetricLine = (line) => /^(前年|売上|比率)[：:]/.test(line || '');
+    const isLabelOnly = (line) => {
+        const m = String(line || '').match(METRIC_RE);
+        return !!m && !String(m[3] || '').trim();
+    };
+    const pairLabelValueLines = (lines) => {
+        const result = [];
+        for (let i = 0; i < lines.length; i++) {
+            const cur = lines[i];
+            const next = lines[i + 1];
+            if (isLabelOnly(cur) && next && !isMetricLine(next)) {
+                result.push(cur + next);
+                i++;
+            } else {
+                result.push(cur);
+            }
+        }
+        return result;
+    };
+
+    const splitCellLines = (text) =>
+        text ? String(text).split(/\r?\n/).map(l => l.trim()).filter(Boolean) : [''];
+
+    // Copytables 同様: ネスト表・ブロック要素も行として拾う
+    const getCellText = (cell) => {
+        const nestedRows = cell.querySelectorAll(':scope table tr');
+        if (nestedRows.length > 0) {
+            const lines = [...nestedRows]
+                .map(r => r.innerText.replace(/\r?\n/g, ' ').trim())
+                .filter(Boolean);
+            if (lines.length) return lines.join('\n');
+        }
+
+        const blocks = cell.querySelectorAll(':scope > div, :scope > p, :scope > li, :scope > span');
+        if (blocks.length > 1) {
+            const lines = [...blocks].map(b => b.innerText.trim()).filter(Boolean);
+            if (lines.length) return lines.join('\n');
+        }
+
+        return cell.innerText.trim();
+    };
+
+    const normalizeColumnLines = (colIdx, splitLines, colCount) => {
+        let lines = pairLabelValueLines([...splitLines[colIdx]]);
+
+        if (colCount >= 4 && colIdx === colCount - 1) {
+            const monthIdx = colCount - 2;
+            const monthLines = pairLabelValueLines([...splitLines[monthIdx]]);
+            const totalBroken = lines.length === 0
+                || lines.every(l => isLabelOnly(l) || !isMetricLine(l));
+            if (monthIdx >= 2 && totalBroken && monthLines.some(isMetricLine)) {
+                lines = monthLines;
+            }
+        }
+        return lines;
+    };
+
+    const buildExpandedRows = (dataMap) => {
+        const outputRows = [];
+
+        for (const r of Array.from(dataMap.keys()).sort((a, b) => a - b)) {
+            const cells = dataMap.get(r).sort((a, b) => a.c - b.c);
+            if (cells.length === 0) continue;
+
+            const minCol = cells[0].c;
+            const maxCol = cells[cells.length - 1].c;
+            const colCount = maxCol - minCol + 1;
+
+            const rowArray = new Array(colCount).fill('');
+            cells.forEach(({ c, text }) => {
+                rowArray[c - minCol] = text;
+            });
+
+            const splitLines = rowArray.map(splitCellLines);
+            const normalizedLines = rowArray.map((_, colIdx) =>
+                normalizeColumnLines(colIdx, splitLines, colCount)
+            );
+
+            const monthIdx = colCount >= 4 ? colCount - 2 : -1;
+            const metricSource = monthIdx >= 2
+                ? normalizedLines[monthIdx]
+                : normalizedLines.find((lines, idx) => idx >= 2 && lines.some(isMetricLine));
+
+            const hasMetricBlock = !!(metricSource && metricSource.some(isMetricLine));
+            const maxLines = hasMetricBlock ? Math.max(metricSource.length, 1) : 1;
+
+            const emitRow = (lineIndex) => {
+                const row = new Array(colCount).fill('');
+                for (let colIdx = 0; colIdx < colCount; colIdx++) {
+                    const lines = normalizedLines[colIdx];
+                    if (colIdx <= 1) {
+                        row[colIdx] = lineIndex === 0 ? (lines[0] || '') : '';
+                        continue;
+                    }
+                    if (colCount >= 4 && colIdx === colCount - 1) {
+                        row[colIdx] = metricSource?.[lineIndex] || '';
+                        continue;
+                    }
+                    if (colIdx === monthIdx) {
+                        row[colIdx] = metricSource?.[lineIndex] || '';
+                        continue;
+                    }
+                    row[colIdx] = lines[lineIndex] || '';
+                }
+                return row;
+            };
+
+            if (!hasMetricBlock || maxLines <= 1) {
+                outputRows.push(emitRow(0));
+            } else {
+                for (let i = 0; i < maxLines; i++) outputRows.push(emitRow(i));
+            }
+        }
+        return outputRows;
+    };
+
+    const rowsToTsv = (rows) =>
+        rows.map(row => row.map(escapeTsvCell).join('\t')).join('\n');
+
+    // 本物の DOM テーブルを構築
+    // C/D は同じ行に「前年：2,807,680」形式（1セル1行）
+    const buildDomTable = (doc, rows) => {
+        const table = doc.createElement('table');
+        table.setAttribute('border', '0');
+        table.setAttribute('cellspacing', '0');
+        table.setAttribute('cellpadding', '0');
+
+        rows.forEach(row => {
+            const tr = doc.createElement('tr');
+            row.forEach((cell) => {
+                const td = doc.createElement('td');
+                td.textContent = cell;
+                tr.appendChild(td);
+            });
+            table.appendChild(tr);
+        });
+        return table;
+    };
+
+    const rowsToHtmlFragment = (rows) => buildDomTable(document, rows).outerHTML;
+
+    // copy イベントで HTML/TSV を直接セット（拡張でもっとも確実）
+    const copyViaCopyEvent = (html, text) => {
+        let written = false;
+        const onCopy = (e) => {
+            try {
+                e.clipboardData.setData('text/html', html);
+                e.clipboardData.setData('text/plain', text);
+                e.preventDefault();
+                written = true;
+            } catch (_) { /* ignore */ }
+        };
+
+        document.addEventListener('copy', onCopy, true);
+        let ok = false;
+        try {
+            ok = document.execCommand('copy');
+        } catch (_) {
+            ok = false;
+        }
+        document.removeEventListener('copy', onCopy, true);
+
+        if (!ok || !written) {
+            throw new Error('copy event failed');
+        }
+    };
+
+    // ページ内の表を選択してコピー（iframe 不要）
+    const copyViaDomSelection = (rows) => {
+        const holder = document.createElement('div');
+        holder.contentEditable = 'true';
+        holder.style.cssText = 'position:fixed;left:-9999px;top:0;width:1px;height:1px;opacity:0;';
+        holder.appendChild(buildDomTable(document, rows));
+        document.body.appendChild(holder);
+
+        const table = holder.querySelector('table');
+        const selection = window.getSelection();
+        const range = document.createRange();
+
+        try {
+            holder.focus();
+            range.selectNodeContents(table);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            const ok = document.execCommand('copy');
+            selection.removeAllRanges();
+            holder.remove();
+            if (!ok) throw new Error('dom selection copy failed');
+        } catch (err) {
+            selection.removeAllRanges();
+            holder.remove();
+            throw err;
+        }
+    };
+
+    const copyViaClipboardItem = async (html, text) => {
+        await navigator.clipboard.write([
+            new ClipboardItem({
+                'text/html': new Blob([html], { type: 'text/html' }),
+                'text/plain': new Blob([text], { type: 'text/plain' }),
+            }),
+        ]);
+    };
+
+    const copyTableData = async (rows) => {
+        if (!rows || rows.length === 0) {
+            throw new Error('no rows');
+        }
+
+        const html = rowsToHtmlFragment(rows);
+        const text = rowsToTsv(rows);
+        const errors = [];
+
+        // 1) copy イベント直書き（同期・ユーザー操作中に実行できる）
+        try {
+            copyViaCopyEvent(html, text);
+            return;
+        } catch (e) {
+            errors.push(e);
+        }
+
+        // 2) DOM 選択 + execCommand
+        try {
+            copyViaDomSelection(rows);
+            return;
+        } catch (e) {
+            errors.push(e);
+        }
+
+        // 3) ClipboardItem
+        try {
+            if (typeof ClipboardItem !== 'undefined') {
+                await copyViaClipboardItem(html, text);
+                return;
+            }
+        } catch (e) {
+            errors.push(e);
+        }
+
+        // 4) TSV のみ
+        try {
+            await navigator.clipboard.writeText(text);
+            return;
+        } catch (e) {
+            errors.push(e);
+        }
+
+        throw new Error(errors.map(e => e && e.message ? e.message : String(e)).join(' | '));
+    };
+
     const cleanup = () => {
         document.getElementById('ts-pro-host')?.remove();
         document.getElementById('ts-global-style')?.remove();
@@ -166,7 +424,8 @@
         return { td, tr, table, c: td.cellIndex, r: tr.rowIndex };
     };
 
-    const clearH = () => document.querySelectorAll('.tc-tab-h, .tc-row-h, .tc-col-h, .tc-range-h').forEach(el => el.classList.remove('tc-tab-h', 'tc-row-h', 'tc-col-h', 'tc-range-h'));
+    const clearH = () => document.querySelectorAll('.tc-tab-h, .tc-row-h, .tc-col-h, .tc-range-h')
+        .forEach(el => el.classList.remove('tc-tab-h', 'tc-row-h', 'tc-col-h', 'tc-range-h'));
 
     document.onmouseover = (e) => {
         if (!mode || startCell || isCopying) return;
@@ -228,6 +487,7 @@
             isCopying = true;
             const dataMap = buildDataMap(selected);
             clearH();
+            const rows = buildExpandedRows(dataMap);
 
             const outputFormat = getOutputFormat();
             const text = outputFormat === 'markdown' ? toMarkdown(dataMap) : toTsv(dataMap);
@@ -242,6 +502,7 @@
             }).catch(() => {
                 isCopying = false;
                 alert(getMsg("copy_error") || "Copy failed.");
+                cleanup();
             });
         }
         startCell = null;
