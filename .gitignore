@@ -2,8 +2,3 @@
 .AppleDouble
 .LSOverride
 __MACOSX/
-
-# Nested repos live alongside this project (not inside it)
-/table-csv/
-/TableSnap Pro/
-/tablesnap pro v2/
