@@ -1,6 +1,10 @@
-# TableSnap Pro 🚀
+# TableSnap Pro
 
-**Version v2.0.5** (Chrome extension `2.0.5`) — Copy web tables as **Excel (CSV)** or **Markdown**. Four selection modes; all processing stays on your device.
+Copy web tables as **Excel (CSV)** or **Markdown**. Four selection modes. All processing stays on your device.
+
+**Install:** [Chrome Web Store](https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg)  
+**What's new:** [App updates](https://k-tech-lab.vercel.app/updates/)  
+**LP:** [tablesnap-pro-lp.vercel.app](https://tablesnap-pro-lp.vercel.app/)
 
 ![TableSnap Pro Infographic](./image_1.png)
 
@@ -24,9 +28,9 @@
 You can install the official version from the Chrome Web Store:  
 👉 **[Install TableSnap Pro](https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg)**
 
-### 🛠 How to Use (v2.0.5)
+### 🛠 How to Use
 1.  Navigate to a web page containing a table.
-2.  Click the **TableSnap Pro** icon. The panel header shows **V2.0.5**.
+2.  Click the **TableSnap Pro** icon.
 3.  Choose **Excel (CSV)** or **Markdown**, then select a mode (table / rows / columns / range).
 4.  Click or drag on the table to select data—it is copied to your clipboard automatically.
 5.  Paste into Excel, Google Sheets, Obsidian, Notion, or your editor.
@@ -36,7 +40,7 @@ You can install the official version from the Chrome Web Store:
 <a name="japanese"></a>
 ## 日本語
 
-**ウェブの表を Excel または Markdown へ。** TableSnap Pro は、表計算・Obsidian・Notion・AI 向けに Web テーブルを高精度でクリップボードへ送る Chrome 拡張機能です（**v2.0.5**）。
+**ウェブの表を Excel または Markdown へ。** TableSnap Pro は、表計算・Obsidian・Notion・AI 向けに Web テーブルを高精度でクリップボードへ送る Chrome 拡張機能です。
 
 ### ✨ 主な特徴
 * **2つの出力形式:** **Excel用（CSV/TSV）** と **Markdown**（パイプ表）をパネル上部で切り替え。
@@ -49,9 +53,9 @@ You can install the official version from the Chrome Web Store:
 Chromeウェブストアから公式版をインストールいただけます：  
 👉 **[TableSnap Pro をインストールする](https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg)**
 
-### 🛠 使い方（v2.0.5）
+### 🛠 使い方
 1.  コピーしたい表があるページを開きます。
-2.  ツールバーの **TableSnap Pro** アイコンをクリックします（パネル上部に **V2.0.5** と表示）。
+2.  ツールバーの **TableSnap Pro** アイコンをクリックします。
 3.  **Excel用（CSV）** または **Markdown** を選び、①〜④のモードを選びます。
 4.  ページ上の表をクリック／ドラッグして選択すると、自動でクリップボードにコピーされます。
 5.  Excel、スプレッドシート、Obsidian、Notion などに **貼り付け（Ctrl+V / ⌘V）** します。
@@ -322,13 +326,19 @@ Bạn có thể cài đặt phiên bản chính thức từ Chrome Web Store:
 
 ---
 
-## v2.0.5 — Other languages
+## Other languages
 
-For **Deutsch, Français, Español, 中文, 한국어,** and all other localized sections above, the **v2.0.5** workflow matches [English](#english): open the panel (**V2.0.5**), choose **Excel (CSV)** or **Markdown**, pick table / rows / columns / range, select on the page, then paste.
+Deutsch, Français, Español, 中文, 한국어, and the other sections above: the current workflow matches [English](#english) — open the panel, choose **Excel (CSV)** or **Markdown**, pick table / rows / columns / range, select on the page, then paste.
+
+What's new is always on [App updates](https://k-tech-lab.vercel.app/updates/). That page does not need a README edit for each release.
 
 ## 🔗 Links
-* **Official Website (LP):** [https://crossbeat461-a11y.github.io/tablesnap-lp/](https://crossbeat461-a11y.github.io/tablesnap-lp/) · [https://tablesnap-pro-lp.vercel.app/](https://tablesnap-pro-lp.vercel.app/)
-* **Developer:** [crossbeat461-a11y](https://github.com/crossbeat461-a11y)
+
+* **Install:** [Chrome Web Store](https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg)
+* **What's new:** [k-tech-lab.vercel.app/updates](https://k-tech-lab.vercel.app/updates/)
+* **LP:** [tablesnap-pro-lp.vercel.app](https://tablesnap-pro-lp.vercel.app/)
+* **Releases:** [github.com/crossbeat461-a11y/tablesnap-pro/releases](https://github.com/crossbeat461-a11y/tablesnap-pro/releases)
+* **Studio:** [k-tech-lab.vercel.app](https://k-tech-lab.vercel.app/)
 
 ---
-© 2026 TableSnap Pro Project (v2.0.5). Licensed under the MIT License.
+© K-Tech Studio. Licensed under the MIT License.
