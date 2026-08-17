@@ -9,5 +9,6 @@
   "mode_range": { "message": "Saklaw ng Cell (Libreng piliin)" },
   "btn_cancel": { "message": "Kanselahin" },
   "copy_success": { "message": "Kumpleto na ang Kopyahin!" },
-  "copy_error": { "message": "Nabigo ang kopyahin." }
+  "copy_error": { "message": "Nabigo ang kopyahin." },
+  "support_bmc": { "message": "Buy Me a Coffee" }
 }

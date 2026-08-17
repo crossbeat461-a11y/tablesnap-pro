@@ -31,5 +31,8 @@
    },
    "mode_table": {
       "message": "पूरी टेबल"
+   },
+   "support_bmc": {
+      "message": "Buy Me a Coffee"
    }
 }

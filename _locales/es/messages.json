@@ -31,5 +31,8 @@
    },
    "mode_table": {
       "message": "Tabla Completa"
+   },
+   "support_bmc": {
+      "message": "Buy Me a Coffee"
    }
 }

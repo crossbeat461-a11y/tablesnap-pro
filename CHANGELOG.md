@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.6 (V2.0.6) — 2026-08-17
+
+- Panel support link: **Buy Me a Coffee**.
+- Version label **V2.0.6** (manifest `2.0.6`).
+
 ## 2.0.5 (V2.0.5) — 2026-08-05
 
 - Panel and docs version label unified to **V2.0.5** (manifest `2.0.5`).

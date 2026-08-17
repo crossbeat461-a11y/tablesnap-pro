@@ -1,4 +1,4 @@
-/* content.js Ver 2.0.5 - International Edition */
+/* content.js Ver 2.0.6 - International Edition */
 (function() {
     if (window.isTableSelectorRunning) return;
     window.isTableSelectorRunning = true;
@@ -309,6 +309,11 @@
         .btn-row { border-left: 10px solid #007bff; }
         .btn-col { border-left: 10px solid #28a745; }
         .btn-range { border-left: 10px solid #ffc107; }
+        .support-link {
+            display: block; text-align: center; margin: 12px 0 0;
+            font-size: 12px; font-weight: 600; color: #666; text-decoration: none;
+        }
+        .support-link:hover { color: #333; text-decoration: underline; }
         .btn-close { background: #fee !important; color: #d9534f !important; border: none; margin-top: 15px; text-align: center; }
     `;
     shadow.appendChild(style);
@@ -318,7 +323,7 @@
     panel.innerHTML = `
         <div class="title">
             <div class="title-main">TableSnap Pro</div>
-            <span class="title-version">V2.0.5</span>
+            <span class="title-version">V2.0.6</span>
         </div>
         <div class="format-row">
             <span class="format-label">${getMsg("format_label") || "Output format"}</span>
@@ -331,6 +336,7 @@
         <button class="btn btn-row" data-mode="row">② ${getMsg("mode_row") || 'Rows'}</button>
         <button class="btn btn-col" data-mode="col">③ ${getMsg("mode_col") || 'Columns'}</button>
         <button class="btn btn-range" data-mode="range">④ ${getMsg("mode_range") || 'Range'}</button>
+        <a class="support-link" href="https://buymeacoffee.com/k_tech_studio" target="_blank" rel="noopener noreferrer">${getMsg("support_bmc") || "Buy Me a Coffee"}</a>
         <button class="btn btn-close">${getMsg("btn_cancel") || 'Cancel'}</button>
     `;
     shadow.appendChild(panel);
@@ -364,6 +370,10 @@
             panel.style.display = 'none';
         };
     });
+    const supportLink = shadow.querySelector('.support-link');
+    if (supportLink) {
+        supportLink.addEventListener('click', (e) => e.stopPropagation());
+    }
 
     const buildDataMap = (selected) => {
         const dataMap = new Map();

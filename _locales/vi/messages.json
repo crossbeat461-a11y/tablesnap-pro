@@ -31,5 +31,8 @@
    },
    "mode_table": {
       "message": "Toàn bộ bảng"
+   },
+   "support_bmc": {
+      "message": "Buy Me a Coffee"
    }
 }

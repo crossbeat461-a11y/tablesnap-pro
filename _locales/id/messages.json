@@ -31,5 +31,8 @@
    },
    "mode_table": {
       "message": "Seluruh Tabel"
+   },
+   "support_bmc": {
+      "message": "Buy Me a Coffee"
    }
 }
