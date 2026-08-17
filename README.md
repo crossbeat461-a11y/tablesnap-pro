@@ -339,6 +339,7 @@ What's new is always on [App updates](https://k-tech-lab.vercel.app/updates/). T
 * **LP:** [tablesnap-pro-lp.vercel.app](https://tablesnap-pro-lp.vercel.app/)
 * **Releases:** [github.com/crossbeat461-a11y/tablesnap-pro/releases](https://github.com/crossbeat461-a11y/tablesnap-pro/releases)
 * **Studio:** [k-tech-lab.vercel.app](https://k-tech-lab.vercel.app/)
+* **Support:** [Buy Me a Coffee](https://buymeacoffee.com/k_tech_studio)
 
 ---
 © K-Tech Studio. Licensed under the MIT License.
