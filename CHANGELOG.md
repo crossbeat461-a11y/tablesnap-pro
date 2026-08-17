@@ -4,6 +4,7 @@
 
 - Panel support link: **Buy Me a Coffee**.
 - Version label **V2.0.6** (manifest `2.0.6`).
+- Ignore icon clicks on `chrome://` and other pages the extension cannot access.
 
 ## 2.0.5 (V2.0.5) — 2026-08-05
 
