@@ -310,10 +310,19 @@
         .btn-col { border-left: 10px solid #28a745; }
         .btn-range { border-left: 10px solid #ffc107; }
         .support-link {
-            display: block; text-align: center; margin: 12px 0 0;
-            font-size: 12px; font-weight: 600; color: #666; text-decoration: none;
+            display: block;
+            width: fit-content;
+            margin: 12px auto 0;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #e0a800;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.02em;
         }
-        .support-link:hover { color: #333; text-decoration: underline; }
+        .support-link:hover { background: #c99200; color: #fff; text-decoration: none; }
         .btn-close { background: #fee !important; color: #d9534f !important; border: none; margin-top: 15px; text-align: center; }
     `;
     shadow.appendChild(style);
