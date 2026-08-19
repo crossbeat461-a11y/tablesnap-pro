@@ -343,5 +343,11 @@ What's new is always on [App updates](https://k-tech-lab.vercel.app/updates/). T
 * **Studio:** [k-tech-lab.vercel.app](https://k-tech-lab.vercel.app/)
 * **Support:** [Buy Me a Coffee](https://buymeacoffee.com/k_tech_studio)
 
+## Disclaimer / 免責（無保証）
+
+This software is provided **as is**, without warranty of any kind. The developer does not guarantee that it will work in every environment. Use at your own risk. Licensed under the MIT License.
+
+本ソフトウェアは **現状有姿（無保証）** で提供します。あらゆる環境での動作を保証しません。利用は自己責任です。ライセンスは MIT です。
+
 ---
 © K-Tech Studio. Licensed under the MIT License.
