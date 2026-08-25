@@ -16,5 +16,5 @@
    "name": "TableSnap Pro",
    "permissions": [ "activeTab", "scripting", "clipboardWrite" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "2.0.6"
+   "version": "2.0.7"
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.7 (V2.0.7) — 2026-08-20
+
+- Restore in-cell line breaks when copying tables (nested blocks, quoted TSV, HTML `<br>`).
+- Excel copy again uses HTML + TSV. Markdown keeps line breaks as `<br>`.
+
 ## 2.0.6 (V2.0.6) — 2026-08-17
 
 - Panel support link: **Buy Me a Coffee**.

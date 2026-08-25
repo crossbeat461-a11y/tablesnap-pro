@@ -1,4 +1,4 @@
-/* content.js Ver 2.0.6 - International Edition */
+/* content.js Ver 2.0.7 - International Edition */
 (function() {
     if (window.isTableSelectorRunning) return;
     window.isTableSelectorRunning = true;
@@ -48,11 +48,13 @@
 
         const blocks = cell.querySelectorAll(':scope > div, :scope > p, :scope > li, :scope > span');
         if (blocks.length > 1) {
-            const lines = [...blocks].map(b => b.innerText.trim()).filter(Boolean);
+            const lines = [...blocks].map(b => String(b.innerText || '').replace(/\s+$/g, ''));
+            while (lines.length && lines[0] === '') lines.shift();
+            while (lines.length && lines[lines.length - 1] === '') lines.pop();
             if (lines.length) return lines.join('\n');
         }
 
-        return cell.innerText.trim();
+        return String(cell.innerText || '').replace(/\r\n/g, '\n').replace(/^\s+|\s+$/g, '');
     };
 
     const normalizeColumnLines = (colIdx, splitLines, colCount) => {
@@ -120,7 +122,9 @@
                 return row;
             };
 
-            if (!hasMetricBlock || maxLines <= 1) {
+            if (!hasMetricBlock) {
+                outputRows.push(rowArray);
+            } else if (maxLines <= 1) {
                 outputRows.push(emitRow(0));
             } else {
                 for (let i = 0; i < maxLines; i++) outputRows.push(emitRow(i));
@@ -144,7 +148,11 @@
             const tr = doc.createElement('tr');
             row.forEach((cell) => {
                 const td = doc.createElement('td');
-                td.textContent = cell;
+                const parts = String(cell ?? '').split(/\r?\n/);
+                parts.forEach((part, i) => {
+                    if (i > 0) td.appendChild(doc.createElement('br'));
+                    td.appendChild(doc.createTextNode(part));
+                });
                 tr.appendChild(td);
             });
             table.appendChild(tr);
@@ -332,7 +340,7 @@
     panel.innerHTML = `
         <div class="title">
             <div class="title-main">TableSnap Pro</div>
-            <span class="title-version">V2.0.6</span>
+            <span class="title-version">V2.0.7</span>
         </div>
         <div class="format-row">
             <span class="format-label">${getMsg("format_label") || "Output format"}</span>
@@ -389,15 +397,9 @@
         selected.forEach(cell => {
             const r = cell.parentElement.rowIndex;
             if (!dataMap.has(r)) dataMap.set(r, []);
-            dataMap.get(r).push({ c: cell.cellIndex, text: cell.innerText.trim() });
+            dataMap.get(r).push({ c: cell.cellIndex, text: getCellText(cell) });
         });
         return dataMap;
-    };
-
-    const toTsv = (dataMap) => {
-        return Array.from(dataMap.keys()).sort((a, b) => a - b).map(r => {
-            return dataMap.get(r).sort((a, b) => a.c - b.c).map(obj => obj.text).join('\t');
-        }).join('\n');
     };
 
     const toMarkdown = (dataMap) => {
@@ -420,7 +422,7 @@
             return cells;
         });
 
-        const escapeCell = (text) => String(text).replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
+        const escapeCell = (text) => String(text).replace(/\|/g, '\\|').replace(/\r?\n/g, '<br>');
         const formatRow = (cells) => '| ' + cells.map(escapeCell).join(' | ') + ' |';
         const separator = (colCount) => '| ' + Array.from({ length: colCount }, () => '---').join(' | ') + ' |';
 
@@ -506,23 +508,26 @@
             isCopying = true;
             const dataMap = buildDataMap(selected);
             clearH();
-            const rows = buildExpandedRows(dataMap);
-
             const outputFormat = getOutputFormat();
-            const text = outputFormat === 'markdown' ? toMarkdown(dataMap) : toTsv(dataMap);
 
-            navigator.clipboard.writeText(text).then(() => {
+            const showOk = () => {
                 const t = document.createElement('div');
                 t.textContent = getMsg("copy_success") || "Copied!";
                 t.style.cssText = "position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#000;color:#fff;padding:10px 24px;border-radius:30px;z-index:2147483647;font-weight:bold;box-shadow:0 4px 15px rgba(0,0,0,0.4);";
                 document.body.appendChild(t);
-
                 setTimeout(() => { t.remove(); cleanup(); }, 1200);
-            }).catch(() => {
+            };
+            const showErr = () => {
                 isCopying = false;
                 alert(getMsg("copy_error") || "Copy failed.");
                 cleanup();
-            });
+            };
+
+            if (outputFormat === 'markdown') {
+                navigator.clipboard.writeText(toMarkdown(dataMap)).then(showOk).catch(showErr);
+            } else {
+                copyTableData(buildExpandedRows(dataMap)).then(showOk).catch(showErr);
+            }
         }
         startCell = null;
     };
